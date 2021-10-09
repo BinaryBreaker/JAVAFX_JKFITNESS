@@ -1,28 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXButton?>
-<?import com.jfoenix.controls.JFXCheckBox?>
-<?import com.jfoenix.controls.JFXComboBox?>
-<?import com.jfoenix.controls.JFXDialog?>
-<?import com.jfoenix.controls.JFXRadioButton?>
-<?import com.jfoenix.controls.JFXTextArea?>
-<?import com.jfoenix.controls.JFXTextField?>
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.SplitPane?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.layout.StackPane?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
+<?import com.jfoenix.controls.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
 <VBox prefHeight="945.0" prefWidth="981.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MyLayout.Controller">
     <children>
@@ -53,7 +36,7 @@
                                         <Font name="Ebrima Bold" size="16.0" />
                                     </font>
                                 </JFXButton>
-                                <JFXButton layoutX="10.0" layoutY="187.0" maxWidth="1.7976931348623157E308" onAction="#Package" prefHeight="65.0" prefWidth="170.0" text="Renew">
+                                <JFXButton layoutX="10.0" layoutY="187.0" maxWidth="1.7976931348623157E308" onAction="#Package" prefHeight="65.0" prefWidth="170.0" text="Renewals">
                                     <font>
                                         <Font name="Ebrima Bold" size="16.0" />
                                     </font>
@@ -420,7 +403,7 @@
                                 </VBox>
                         <VBox id="UDPDATEVBOx" fx:id="Update_Package" alignment="TOP_CENTER" maxWidth="1200.0" minWidth="500.0" prefHeight="200.0" prefWidth="100.0" stylesheets="@styles/style.css">
                            <children>
-                              <Label id="okok" fx:id="label1" stylesheets="@styles/style.css" text="Renew Package">
+                              <Label id="okok" fx:id="label1" stylesheets="@styles/style.css" text="Renewals">
                                  <font>
                                     <Font name="Cambria Bold" size="96.0" />
                                  </font>

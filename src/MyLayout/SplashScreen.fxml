@@ -4,10 +4,9 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 
-
-<HBox fx:id="hBox" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="467.0" prefWidth="783.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MyLayout.SplashScreen">
+<HBox fx:id="hBox" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="403.0" prefWidth="783.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MyLayout.SplashScreen">
    <children>
-      <ImageView fx:id="imageView" fitHeight="301.0" fitWidth="659.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="imageView" fitHeight="505.0" fitWidth="785.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/loadingScreen.png" />
          </image>

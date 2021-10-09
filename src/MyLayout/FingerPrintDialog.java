@@ -107,7 +107,7 @@ public class FingerPrintDialog implements Initializable {
             return;
         }
         if (0 == (mhDevice = FingerprintSensorEx.OpenDevice(0))) {
-            textArea.setText("Open device fail, ret = " + ret + "!\n");
+            textArea.setText("Failed to open device, ret = " + ret + "!\n");
             FreeSensor();
             return;
         }
@@ -155,7 +155,7 @@ public class FingerPrintDialog implements Initializable {
         if (!bRegister) {
             enroll_idx = 0;
             bRegister = true;
-            textArea.setText("Please your finger 3 times!\n");
+            textArea.setText("Place your finger 3 times!\n");
         }
     }
 
@@ -317,13 +317,13 @@ public class FingerPrintDialog implements Initializable {
             int[] score = new int[1];
             int ret = FingerprintSensorEx.DBIdentify(mhDB, template, fid, score);
             if (ret == 0) {
-                textArea.setText("the finger already enroll by " + fid[0] + ",cancel enroll\n");
+                textArea.setText("The finger already enrolled by " + fid[0] + ",cancel enroll\n");
                 bRegister = false;
                 enroll_idx = 0;
                 return;
             }
             if (enroll_idx > 0 && FingerprintSensorEx.DBMatch(mhDB, regtemparray[enroll_idx - 1], template) <= 0) {
-                textArea.setText("please press the same finger 3 times for the enrollment\n");
+                textArea.setText("Press the same finger 3 times for the enrollment\n");
                 return;
             }
             System.arraycopy(template, 0, regtemparray[enroll_idx], 0, 2048);
@@ -355,7 +355,7 @@ public class FingerPrintDialog implements Initializable {
                 }
                 bRegister = false;
             } else {
-                textArea.setText("You need to press the " + (3 - enroll_idx) + " times fingerprint\n");
+                textArea.setText("Press" + (3 - enroll_idx) + "more times\n");
             }
         } else {
             if (bIdentify) {
@@ -363,7 +363,7 @@ public class FingerPrintDialog implements Initializable {
                 int[] score = new int[1];
                 int ret = FingerprintSensorEx.DBIdentify(mhDB, template, fid, score);
                 if (ret == 0) {
-                    textArea.setText("Identify succ, fid=" + fid[0] + ",score=" + score[0] + "\n");
+                    textArea.setText("Identify success, fid=" + fid[0] + ",score=" + score[0] + "\n");
                 } else {
                     textArea.setText("Identify fail, errcode=" + ret + "\n");
                 }

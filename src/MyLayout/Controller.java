@@ -811,7 +811,7 @@ public class Controller implements Initializable, TemplateSetter {
                         @Override
                         public void run() {
                             LoadingDialog.close();
-                            ShowDialog("Error", "Connection Error Please Check Your internet Connection");
+                            ShowDialog("Error", "Connection Error. Check Your internet Connection");
                         }
                     });
                 }
@@ -936,7 +936,7 @@ public class Controller implements Initializable, TemplateSetter {
 
             @Override
             public void ErrorWebcame() {
-                ShowDialog("Webcam Error", "Please ensure that camera is connected");
+                ShowDialog("Webcam Error", "Ensure that camera is connected");
             }
         });
         Scene scene = new Scene(parent);
@@ -974,7 +974,7 @@ public class Controller implements Initializable, TemplateSetter {
             client.setDOB(value);
             return true;
         } catch (ParseException e) {
-            Validate_Dialog += "Please enter Date of Birth in  YYYY-MM-DD Format\n";
+            Validate_Dialog += "Enter Date-of-Birth in  YYYY-MM-DD Format\n";
             return false;
         }
     }
@@ -1005,7 +1005,7 @@ public class Controller implements Initializable, TemplateSetter {
         JFXTextField var = Name;
         String value = var.getText().toString().trim();
         if (value.length() <= 0) {
-            Validate_Dialog += "Person name required\n";
+            Validate_Dialog += "Client name required\n";
             return false;
         }
 
@@ -1079,7 +1079,7 @@ public class Controller implements Initializable, TemplateSetter {
             Validate_Dialog += "Email required \n";
             return false;
         } else if (!Pattern.matches("[a-zA-Z0-9]{1,}[@]{1}[a-z]{5,}[.]{1}+[a-z]{3}", value)) {
-            Validate_Dialog += "Enter a valid email  \n";
+            Validate_Dialog += "Enter a valid email address  \n";
             return false;
         }
         client.setEMAIL(value);
@@ -1090,7 +1090,7 @@ public class Controller implements Initializable, TemplateSetter {
         JFXTextField var = PhoneNo;
         String value = var.getText().toString().trim();
         if (value.length() < 0) {
-            Validate_Dialog += "Phone no required \n";
+            Validate_Dialog += "Phone No. required \n";
             return false;
         } else if (value.length() != 11 || !Pattern.matches("[0-9]+", value)) {
             Validate_Dialog += "Wrong Number \n";
@@ -1243,7 +1243,7 @@ public class Controller implements Initializable, TemplateSetter {
                 client.setDOB(value);
                 return true;
             } catch (ParseException e) {
-                ShowDialog("Invalid", "Please enter Date in  YYYY-MM-DD Format\n");
+                ShowDialog("Invalid", "Enter Date in  YYYY-MM-DD Format\n");
                 return false;
             }
         }
@@ -1254,7 +1254,7 @@ public class Controller implements Initializable, TemplateSetter {
     private boolean CheckPacakge() {
         GymPakagetDetail profile = (GymPakagetDetail) Packagedetail.getValue();
         if (profile == null) {
-            ShowDialog("Invalid", "Please Select a package first ");
+            ShowDialog("Invalid", "Select a package first ");
             return false;
         }
         return true;
@@ -1299,13 +1299,13 @@ public class Controller implements Initializable, TemplateSetter {
                                     PrintableData data = new Gson().fromJson(message, PrintableData.class);
                                     data.prindata();
                                     if ((dataPackteNew.getStatus().toLowerCase()).equals("pending")) {
-                                        ShowDialog("Package renewed", "User Account is not Approved yet\nFingerprint will be added after account has been approved by the owner");
+                                        ShowDialog("Package renewal Error", "Client account is not approved yet..\nYou can add fingerprint after the owner approves the client");
                                         LoadingDialog.close();
                                         RestDataPackete();
 
 
                                     } else if ((dataPackteNew.getFigerPrint()).length() < 10) {
-                                        ShowDialog("Package renewed", "User Fingerprint not found please Update the uer data");
+                                        ShowDialog("Package renewal Error", "No Fingerprint associated with this client. Update client data.");
                                         LoadingDialog.close();
                                         RestDataPackete();
 
@@ -1352,7 +1352,7 @@ public class Controller implements Initializable, TemplateSetter {
                             @Override
                             public void run() {
                                 LoadingDialog.close();
-                                ShowDialog("Error", "Connection Error Please Check Your internet Connection");
+                                ShowDialog("Error", "Connection error. Check your internet Connection");
                             }
                         });
                     }
