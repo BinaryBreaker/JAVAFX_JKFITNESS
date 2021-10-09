@@ -1,0 +1,38 @@
+#RegistraionVBOx{
+-fx-background-color : rgba(255,255,255,0.9);
+-fx-background-radius :   10px;
+-fx-effect :  dropshadow(three-pass-box, rgba(0,0,0,0.1), 7, 0, 0, 0);
+}
+
+#UDPDATEVBOx{
+-fx-background-color : rgba(255,255,255,0.9);
+-fx-background-radius :   10px;
+-fx-effect :  dropshadow(three-pass-box, rgba(0,0,0,0.1), 7, 0, 0, 0);
+}
+.split-pane-divider {
+   -fx-background-color:rgba(255,255,255,0.9);
+}
+
+.label {
+    -fx-font-size : 14px;
+    -fx-padding: 5px;
+    -fx-border-insets: 5px;
+    -fx-background-insets: 5px;
+       -fx-font-weight:bold;
+      -fx-font-family: Lucida Bright;
+}
+#okok{
+
+ -fx-font-size : 30px;
+    -fx-padding: 5px;
+    -fx-border-insets: 5px;
+    -fx-background-insets: 5px;
+}
+.jfx-text-field  {
+   -fx-font-size : 15px;
+   -fx-text-inner-color: black;
+
+}
+.split-pane-divider {
+   -fx-background-color: transparent;
+}

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXDialog?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<StackPane fx:id="stackpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="563.0" prefWidth="906.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MyLayout.Login">
+   <children>
+      <JFXDialog fx:id="dialog" />
+      <HBox prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <HBox alignment="CENTER" prefHeight="561.0" prefWidth="388.0" style="-fx-background-color: white;">
+               <children>
+                  <ImageView fitHeight="214.0" fitWidth="243.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/logo.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </HBox>
+            <AnchorPane prefHeight="561.0" prefWidth="517.0" style="-fx-background-color: white;;">
+               <children>
+                  <VBox alignment="CENTER_LEFT" prefHeight="561.0" prefWidth="490.0" spacing="10.0" stylesheets="@styles/style.css">
+                     <children>
+                        <Label stylesheets="@styles/style.css" text="Username">
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <VBox.margin>
+                              <Insets left="-5.0" />
+                           </VBox.margin>
+                        </Label>
+                        <JFXTextField fx:id="username" promptText="Branch Name" />
+                        <Label text="Password">
+                           <VBox.margin>
+                              <Insets left="-5.0" />
+                           </VBox.margin>
+                        </Label>
+                        <JFXTextField fx:id="password" promptText="**********" />
+                        <HBox alignment="CENTER" maxWidth="1.7976931348623157E308" prefHeight="48.0" prefWidth="460.0">
+                           <children>
+                              <JFXButton alignment="CENTER" maxWidth="1.7976931348623157E308" onAction="#Submit" prefHeight="35.0" prefWidth="175.0" style="-fx-background-radius: 15px; -fx-background-color: blue;;" text="Login" textFill="WHITE">
+                                 <font>
+                                    <Font name="Bell MT Bold" size="14.0" />
+                                 </font>
+                              </JFXButton>
+                           </children>
+                        </HBox>
+                     </children>
+                     <padding>
+                        <Insets left="15.0" right="15.0" />
+                     </padding>
+                  </VBox>
+               </children>
+            </AnchorPane>
+         </children>
+      </HBox>
+   </children>
+</StackPane>

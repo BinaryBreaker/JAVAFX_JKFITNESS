@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane minHeight="300.0" minWidth="400.0" prefHeight="369.0" prefWidth="577.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MyLayout.CameraDialog">
+   <children>
+      <VBox alignment="CENTER" layoutX="131.0" layoutY="50.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+         <children>
+            <ImageView fx:id="imageView" fitHeight="288.0" fitWidth="561.0" pickOnBounds="true">
+               <image>
+                  <Image url="@../../../../finger.jpg" />
+               </image>
+            </ImageView>
+            <Pane prefHeight="29.0" prefWidth="567.0" style="-fx-background-color: transparent;;" />
+            <JFXButton maxWidth="1.7976931348623157E308" onAction="#Capture" prefHeight="40.0" prefWidth="567.0" style="-fx-background-color: #372ee7;" text="Capture" textFill="WHITE">
+               <font>
+                  <Font name="Franklin Gothic Demi" size="15.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

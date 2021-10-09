@@ -1,0 +1,902 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXCheckBox?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXDialog?>
+<?import com.jfoenix.controls.JFXRadioButton?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<VBox prefHeight="945.0" prefWidth="981.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MyLayout.Controller">
+    <children>
+        <SplitPane dividerPositions="0.2505567928730512" focusTraversable="true" prefHeight="-1.0" prefWidth="-1.0" style="-fx-background-color: #ffffff;" stylesheets="@ styles/style.css" VBox.vgrow="ALWAYS">
+            <items>
+                <AnchorPane maxWidth="170.0" minWidth="130.0">
+                    <children>
+                        <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #f2f2f2;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                            <children>
+                                <ImageView id="logo" fitHeight="60.0" fitWidth="148.0" pickOnBounds="true" preserveRatio="true">
+                                    <VBox.margin>
+                                        <Insets top="70.0" />
+                                    </VBox.margin>
+                                    <image>
+                                        <Image url="@../images/logo2.png" />
+                                    </image>
+                                </ImageView>
+                                <JFXButton maxWidth="1.7976931348623157E308" onAction="#RegisterClient" prefHeight="68.0" prefWidth="170.0" text="Registraion">
+                                    <VBox.margin>
+                                        <Insets top="50.0" />
+                                    </VBox.margin>
+                                    <font>
+                                        <Font name="Ebrima Bold" size="16.0" />
+                                    </font>
+                                </JFXButton>
+                                <JFXButton layoutX="10.0" layoutY="156.0" maxWidth="1.7976931348623157E308" onAction="#Update" prefHeight="63.0" prefWidth="170.0" text="Search | Update">
+                                    <font>
+                                        <Font name="Ebrima Bold" size="16.0" />
+                                    </font>
+                                </JFXButton>
+                                <JFXButton layoutX="10.0" layoutY="187.0" maxWidth="1.7976931348623157E308" onAction="#Package" prefHeight="65.0" prefWidth="170.0" text="Renew">
+                                    <font>
+                                        <Font name="Ebrima Bold" size="16.0" />
+                                    </font>
+                                </JFXButton>
+                            </children>
+                        </VBox>
+                    </children>
+                </AnchorPane>
+                <ScrollPane id="Registraion" fx:id="scrollPane" fitToHeight="true" fitToWidth="true" prefHeight="-1.0" prefWidth="-1.0">
+                    <content>
+                        <StackPane id="stackpane" fx:id="stackpane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minWidth="900.0" prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: rgba(0, 0, 0, 0.192);">
+                            <children>
+                                <JFXDialog fx:id="dialog" />
+                                <VBox id="RegistraionVBOx" fx:id="vBox" alignment="TOP_CENTER" maxWidth="1200.0" minWidth="500.0" prefHeight="200.0" prefWidth="100.0" stylesheets="@styles/style.css">
+                                    <StackPane.margin>
+                                        <Insets bottom="15.0" left="15.0" right="15.0" top="40.0" />
+                                    </StackPane.margin>
+                                    <children>
+                              <Label id="okok" fx:id="label" stylesheets="@ styles/style.css" text="Registration">
+                                 <font>
+                                    <Font name="Cambria Bold" size="96.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" left="5.0" top="10.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <StackPane fx:id="stackPaneSearchUpdate" maxWidth="-Infinity" prefHeight="40.0" prefWidth="439.0" style="-fx-border-color: rgb(0,0,0); -fx-border-radius: 5px;">
+                                 <children>
+                                              <HBox alignment="CENTER" prefHeight="38.0" prefWidth="439.0" style="-fx-border-color: #00000;">
+                                                  <children>
+                                                      <TextField fx:id="search" maxWidth="1.7976931348623157E308" minHeight="-Infinity" prefHeight="38.0" prefWidth="425.0" promptText="Search" style="-fx-border-color: transparent; -fx-border-radius: 5px; -fx-background-color: transparent;">
+                                             <font>
+                                                <Font size="15.0" />
+                                             </font>
+                                          </TextField>
+                                          <JFXButton id="SEARCHButton" alignment="CENTER" onAction="#SearchUser" prefHeight="38.0" prefWidth="55.0">
+                                             <graphic>
+                                                <ImageView fitHeight="27.0" fitWidth="25.0" pickOnBounds="true" smooth="false">
+                                                   <image>
+                                                      <Image url="@../images/icons8_Search_52px.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </graphic></JFXButton>
+                                                  </children>
+                                              </HBox>
+                                 </children>
+                              </StackPane>
+                                        <ImageView fx:id="DP" fitHeight="118.0" fitWidth="125.0" pickOnBounds="true">
+                                            <VBox.margin>
+                                                <Insets top="17.0" />
+                                            </VBox.margin>
+                                            <image>
+                                                <Image url="@../images/jimmy-fallon.png" />
+                                            </image>
+                                        </ImageView>
+                                        <HBox fx:id="DpHBox" alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                                            <children>
+                                                <JFXButton maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#UploadDp" stylesheets="@ styles/style.css" text="Upload">
+                                                    <font>
+                                                        <Font name="Arial" size="13.0" />
+                                                    </font>
+                                                    <HBox.margin>
+                                                        <Insets left="10.0" />
+                                                    </HBox.margin>
+                                                </JFXButton>
+                                                <JFXButton maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#CaptureDp" stylesheets="@ styles/style.css" text="Capture">
+                                                    <font>
+                                                        <Font name="Arial Narrow" size="17.0" />
+                                                    </font>
+                                                </JFXButton>
+                                            </children>
+                                        </HBox>
+                                        <VBox fx:id="MainVBox" prefHeight="200.0" prefWidth="100.0">
+                                            <VBox.margin>
+                                                <Insets bottom="25.0" left="25.0" right="25.0" top="30.0" />
+                                            </VBox.margin>
+                                            <children>
+                                                <Label stylesheets="@ styles/style.css" text="Name" />
+                                                <JFXTextField fx:id="Name" promptText="Client Name" stylesheets="@ styles/style.css">
+                                                    <VBox.margin>
+                                                        <Insets bottom="5.0" left="5.0" right="5.0" />
+                                                    </VBox.margin>
+                                                </JFXTextField>
+                                                <Label layoutX="10.0" layoutY="10.0" stylesheets="@ styles/style.css" text="Father Name" />
+                                                <JFXTextField fx:id="FatherName" promptText="Name goes here" stylesheets="@ styles/style.css">
+                                                    <VBox.margin>
+                                                        <Insets bottom="5.0" left="5.0" right="5.0" />
+                                                    </VBox.margin>
+                                                </JFXTextField>
+                                                <Label layoutX="10.0" layoutY="27.0" stylesheets="@ styles/style.css" text="Gender" />
+                                                <HBox prefHeight="100.0" prefWidth="200.0">
+                                                    <children>
+                                                        <JFXRadioButton fx:id="Male" text="Male" />
+                                                        <JFXRadioButton fx:id="Female" text="Female">
+                                                            <HBox.margin>
+                                                                <Insets left="25.0" />
+                                                            </HBox.margin>
+                                                        </JFXRadioButton>
+                                                    </children>
+                                                    <VBox.margin>
+                                                        <Insets bottom="5.0" left="10.0" right="5.0" top="5.0" />
+                                                    </VBox.margin>
+                                                </HBox>
+                                                <GridPane hgap="15.0">
+                                                    <columnConstraints>
+                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                    </columnConstraints>
+                                                    <rowConstraints>
+                                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                    </rowConstraints>
+                                                    <children>
+                                                        <Label text="ID card" />
+                                                        <Label text="DOB" GridPane.columnIndex="1" />
+                                                    </children>
+                                                    <VBox.margin>
+                                                        <Insets bottom="5.0" top="15.0" />
+                                                    </VBox.margin>
+                                                </GridPane>
+                                                <GridPane hgap="15.0">
+                                                    <columnConstraints>
+                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                    </columnConstraints>
+                                                    <rowConstraints>
+                                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                    </rowConstraints>
+                                                    <children>
+                                                        <JFXTextField fx:id="IdCard" promptText="382016987459" />
+                                                        <JFXTextField fx:id="DOB" promptText="YYYY-MM-DD" GridPane.columnIndex="1" />
+                                                    </children>
+                                                    <VBox.margin>
+                                                        <Insets bottom="10.0" left="5.0" top="10.0" />
+                                                    </VBox.margin>
+                                                </GridPane>
+                                                <GridPane hgap="15.0">
+                                                    <columnConstraints>
+                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                    </columnConstraints>
+                                                    <rowConstraints>
+                                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                    </rowConstraints>
+                                                    <children>
+                                                        <Label text="Phone No" />
+                                                        <Label text="Email" GridPane.columnIndex="1" />
+                                                    </children>
+                                                    <VBox.margin>
+                                                        <Insets bottom="5.0" right="5.0" top="15.0" />
+                                                    </VBox.margin>
+                                                </GridPane>
+                                                <GridPane hgap="15.0">
+                                                    <columnConstraints>
+                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                    </columnConstraints>
+                                                    <rowConstraints>
+                                                        <RowConstraints />
+                                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                    </rowConstraints>
+                                                    <children>
+                                                        <JFXTextField fx:id="PhoneNo" promptText="03485667881" GridPane.rowIndex="1">
+                                                            <GridPane.margin>
+                                                                <Insets />
+                                                            </GridPane.margin>
+                                                        </JFXTextField>
+                                                        <JFXTextField fx:id="Email" promptText="email@lunatech.pk" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                                    </children>
+                                                    <VBox.margin>
+                                                        <Insets bottom="10.0" left="5.0" right="5.0" top="10.0" />
+                                                    </VBox.margin>
+                                                </GridPane>
+                                                <GridPane hgap="15.0">
+                                                    <columnConstraints>
+                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                    </columnConstraints>
+                                                    <rowConstraints>
+                                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                    </rowConstraints>
+                                                    <children>
+                                                        <Label text="Emergency Name">
+                                                            <GridPane.margin>
+                                                                <Insets />
+                                                            </GridPane.margin>
+                                                        </Label>
+                                                        <Label text="Emergency Contact" GridPane.columnIndex="1" />
+                                                    </children>
+                                                    <VBox.margin>
+                                                        <Insets bottom="5.0" top="15.0" />
+                                                    </VBox.margin>
+                                                </GridPane>
+                                                <GridPane hgap="15.0">
+                                                    <columnConstraints>
+                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                    </columnConstraints>
+                                                    <rowConstraints>
+                                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                    </rowConstraints>
+                                                    <children>
+                                                        <JFXTextField fx:id="EmName" promptText="Emr Name" />
+                                                        <JFXTextField fx:id="EmContact" promptText="03041053082" GridPane.columnIndex="1" />
+                                                    </children>
+                                                    <VBox.margin>
+                                                        <Insets bottom="5.0" left="5.0" top="10.0" />
+                                                    </VBox.margin>
+                                                </GridPane>
+                                                <Label text="Profession">
+                                                    <VBox.margin>
+                                                        <Insets bottom="5.0" top="10.0" />
+                                                    </VBox.margin>
+                                                </Label>
+                                                <JFXTextField fx:id="Profession" promptText="Profession goes here">
+                                                    <VBox.margin>
+                                                        <Insets bottom="5.0" left="5.0" />
+                                                    </VBox.margin>
+                                                </JFXTextField>
+                                                <Label text="Address">
+                                                    <VBox.margin>
+                                                        <Insets bottom="5.0" top="10.0" />
+                                                    </VBox.margin>
+                                                </Label>
+                                                <JFXTextArea fx:id="Address" minHeight="-Infinity" prefHeight="50.0" prefWidth="815.0">
+                                                    <VBox.margin>
+                                                        <Insets bottom="5.0" left="5.0" />
+                                                    </VBox.margin>
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                                </JFXTextArea>
+                                                <Label text="Diseases">
+                                                    <VBox.margin>
+                                                        <Insets bottom="5.0" top="10.0" />
+                                                    </VBox.margin>
+                                                </Label>
+                                                <GridPane>
+                                                    <columnConstraints>
+                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                    </columnConstraints>
+                                                    <rowConstraints>
+                                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                    </rowConstraints>
+                                                    <children>
+                                                        <JFXCheckBox fx:id="BloodPressure" checkedColor="#4059a9" text="Blood Pressure" />
+                                                        <JFXCheckBox fx:id="HeartDisease" checkedColor="#4059a9" text="Heart Disease" GridPane.columnIndex="1" />
+                                                        <JFXCheckBox fx:id="Diabetes" checkedColor="#4059a9" text="Diabetes" GridPane.columnIndex="2" />
+                                                        <JFXCheckBox fx:id="Arthritis" checkedColor="#4059a9" text="Arthritis" GridPane.columnIndex="5" />
+                                                        <JFXCheckBox fx:id="Hepatitus" checkedColor="#4059a9" text="Hepatitis " GridPane.columnIndex="3" />
+                                                        <JFXCheckBox fx:id="Asthama" checkedColor="#4059a9" text="Asthma" GridPane.columnIndex="4" />
+                                                    </children>
+                                                    <VBox.margin>
+                                                        <Insets bottom="5.0" left="5.0" top="10.0" />
+                                                    </VBox.margin>
+                                                </GridPane>
+                                    <Label text="CNIC | Fingerprint">
+                                       <VBox.margin>
+                                          <Insets top="10.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                                <GridPane alignment="CENTER" maxHeight="85.0" minHeight="85.0">
+                                                    <columnConstraints>
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                    </columnConstraints>
+                                                    <rowConstraints>
+                                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                    </rowConstraints>
+                                                    <children>
+                                                        <ImageView fx:id="IDcardImageback" fitHeight="95.0" fitWidth="235.0" pickOnBounds="true" GridPane.columnIndex="1" GridPane.halignment="CENTER">
+                                                            <image>
+                                                                <Image url="@../images/BACk%20SIDE.jpg" />
+                                                            </image>
+                                                        </ImageView>
+                                                        <ImageView fx:id="Fingerprint" fitHeight="98.0" fitWidth="85.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER">
+                                                            <image>
+                                                                <Image url="@../../../finger.jpg" />
+                                                            </image>
+                                                        </ImageView>
+                                          <ImageView fx:id="IDcardImageFront" fitHeight="95.0" fitWidth="235.0" pickOnBounds="true" GridPane.halignment="CENTER">
+                                             <image>
+                                                <Image url="@../images/FrontId.jpg" />
+                                             </image>
+                                          </ImageView>
+                                                    </children>
+                                                    <VBox.margin>
+                                                        <Insets bottom="10.0" top="20.0" />
+                                                    </VBox.margin>
+                                                </GridPane>
+                                                <GridPane alignment="TOP_CENTER" hgap="40.0" prefHeight="12.0" prefWidth="820.0">
+                                                    <columnConstraints>
+                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                    </columnConstraints>
+                                                    <rowConstraints>
+                                                        <RowConstraints />
+                                                    </rowConstraints>
+                                                    <children>
+                                                        <JFXButton maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#CaptureFingerPrint" prefHeight="9.0" prefWidth="226.0" stylesheets="@ styles/style.css" text="Scan Fingerprint" GridPane.columnIndex="2">
+                                                            <font>
+                                                                <Font name="Arial Narrow" size="17.0" />
+                                                            </font>
+                                                            <GridPane.margin>
+                                                                <Insets bottom="10.0" left="10.0" right="10.0" />
+                                                            </GridPane.margin>
+                                                        </JFXButton>
+                                                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                                                            <children>
+                                                                <JFXButton maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#UploadIdCardFront" prefHeight="14.0" prefWidth="80.0" stylesheets="@ styles/style.css" text="Upload ID ">
+                                                                    <font>
+                                                                        <Font name="Arial" size="13.0" />
+                                                                    </font>
+                                                                    <HBox.margin>
+                                                                        <Insets left="10.0" />
+                                                                    </HBox.margin>
+                                                                </JFXButton>
+                                                                <JFXButton maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#IdCaptureFront" prefHeight="15.0" prefWidth="74.0" stylesheets="@ styles/style.css" text="Capture">
+                                                                    <font>
+                                                                        <Font name="Arial Narrow" size="17.0" />
+                                                                    </font>
+                                                                </JFXButton>
+                                                            </children>
+                                                        </HBox>
+                                          <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1">
+                                             <children>
+                                                <JFXButton maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#UploadIdCard" prefHeight="16.0" prefWidth="80.0" stylesheets="@ styles/style.css" text="Upload ID ">
+                                                   <font>
+                                                      <Font name="Arial" size="13.0" />
+                                                   </font>
+                                                   <HBox.margin>
+                                                      <Insets left="10.0" />
+                                                   </HBox.margin>
+                                                </JFXButton>
+                                                <JFXButton maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#IdCapture" prefHeight="14.0" prefWidth="74.0" stylesheets="@ styles/style.css" text="Capture">
+                                                   <font>
+                                                      <Font name="Arial Narrow" size="17.0" />
+                                                   </font>
+                                                </JFXButton>
+                                             </children>
+                                          </HBox>
+                                                    </children>
+                                                    <VBox.margin>
+                                                        <Insets bottom="5.0" top="15.0" />
+                                                    </VBox.margin>
+                                                </GridPane>
+                                                <JFXButton fx:id="Submit" buttonType="RAISED" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#OnSubmit" style="-fx-background-color: #4059a9;" text="Submit" textFill="WHITE">
+                                                    <font>
+                                                        <Font name="Lucida Bright" size="18.0" />
+                                                    </font>
+                                                    <VBox.margin>
+                                                        <Insets bottom="60.0" left="40.0" right="60.0" top="25.0" />
+                                                    </VBox.margin>
+                                                </JFXButton>
+                                            </children>
+                                        </VBox>
+                                    </children>
+                                </VBox>
+                        <VBox id="UDPDATEVBOx" fx:id="Update_Package" alignment="TOP_CENTER" maxWidth="1200.0" minWidth="500.0" prefHeight="200.0" prefWidth="100.0" stylesheets="@styles/style.css">
+                           <children>
+                              <Label id="okok" fx:id="label1" stylesheets="@styles/style.css" text="Renew Package">
+                                 <font>
+                                    <Font name="Cambria Bold" size="96.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" left="5.0" top="10.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <StackPane maxWidth="-Infinity" prefHeight="40.0" prefWidth="439.0" style="-fx-border-color: rgb(0,0,0); -fx-border-radius: 5px;">
+                                 <children>
+                                    <HBox alignment="CENTER" prefHeight="38.0" prefWidth="439.0" style="-fx-border-color: #00000;">
+                                       <children>
+                                          <TextField fx:id="PackageSearch" maxWidth="1.7976931348623157E308" minHeight="-Infinity" prefHeight="38.0" prefWidth="450.0" promptText="Search" style="-fx-border-color: transparent; -fx-border-radius: 5px; -fx-background-color: transparent;">
+                                             <font>
+                                                <Font size="15.0" />
+                                             </font>
+                                          </TextField>
+                                          <JFXButton id="SEARCHButton" alignment="CENTER" onAction="#SearchPackageUser" prefHeight="38.0" prefWidth="55.0">
+                                             <graphic>
+                                                <ImageView fitHeight="27.0" fitWidth="25.0" pickOnBounds="true" smooth="false">
+                                                   <image>
+                                                      <Image url="@../images/icons8_Search_52px.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </graphic>
+                                          </JFXButton>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </StackPane>
+                              <ImageView fx:id="PersonDp" fitHeight="118.0" fitWidth="125.0" pickOnBounds="true">
+                                 <VBox.margin>
+                                    <Insets top="17.0" />
+                                 </VBox.margin>
+                                 <image>
+                                    <Image url="@../images/jimmy-fallon.png" />
+                                 </image>
+                              </ImageView>
+                              <VBox fx:id="MainVBox1" prefHeight="200.0" prefWidth="100.0">
+                                 <VBox.margin>
+                                    <Insets bottom="25.0" left="25.0" right="25.0" top="30.0" />
+                                 </VBox.margin>
+                                 <children>
+                                    <GridPane alignment="CENTER" hgap="100.0">
+                                       <columnConstraints>
+                                          <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" prefWidth="100.0" />
+                                          <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                       <children>
+                                          <Text fx:id="PersonName" fill="#402f2f" strokeType="OUTSIDE" strokeWidth="0.0" text="Muhammad Muzamil Hussain" GridPane.columnIndex="1">
+                                             <font>
+                                                <Font name="Dubai Regular" size="18.0" />
+                                             </font>
+                                          </Text>
+                                          <Label text="Name">
+                                             <GridPane.margin>
+                                                <Insets />
+                                             </GridPane.margin>
+                                          </Label>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets top="15.0" />
+                                       </VBox.margin>
+                                    </GridPane>
+                                    <GridPane alignment="CENTER" hgap="100.0">
+                                       <columnConstraints>
+                                          <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                       <children>
+                                          <Text fx:id="PersonPhoneNo" fill="#402f2f" strokeType="OUTSIDE" strokeWidth="0.0" text="03005274991" GridPane.columnIndex="1">
+                                             <font>
+                                                <Font name="Dubai Regular" size="18.0" />
+                                             </font>
+                                          </Text>
+                                          <Label text="Phone No">
+                                             <GridPane.margin>
+                                                <Insets />
+                                             </GridPane.margin>
+                                          </Label>
+                                       </children>
+                                    </GridPane>
+                                    <GridPane alignment="CENTER" hgap="100.0" layoutX="10.0" layoutY="120.0">
+                                       <columnConstraints>
+                                          <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                       <children>
+                                          <Text fx:id="PersonCNIC" fill="#402f2f" strokeType="OUTSIDE" strokeWidth="0.0" text="3821029458093" GridPane.columnIndex="1">
+                                             <font>
+                                                <Font name="Dubai Regular" size="18.0" />
+                                             </font>
+                                          </Text>
+                                          <Label text="CNIC">
+                                             <GridPane.margin>
+                                                <Insets />
+                                             </GridPane.margin>
+                                          </Label>
+                                       </children>
+                                    </GridPane>
+                                    <GridPane alignment="CENTER" hgap="100.0">
+                                       <columnConstraints>
+                                          <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" prefWidth="100.0" />
+                                          <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                       <children>
+                                          <Text fx:id="PersonStartDate" fill="#402f2f" strokeType="OUTSIDE" strokeWidth="0.0" text="11-8-2001" GridPane.columnIndex="1">
+                                             <font>
+                                                <Font name="Dubai Regular" size="18.0" />
+                                             </font>
+                                          </Text>
+                                          <Label text="Package Start Date">
+                                             <GridPane.margin>
+                                                <Insets />
+                                             </GridPane.margin>
+                                          </Label>
+                                       </children>
+                                    </GridPane>
+                                    <GridPane alignment="CENTER" hgap="100.0">
+                                       <columnConstraints>
+                                          <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" prefWidth="100.0" />
+                                          <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                       <children>
+                                          <Text fx:id="PersonEndDate" fill="#402f2f" strokeType="OUTSIDE" strokeWidth="0.0" text="5 Days" GridPane.columnIndex="1">
+                                             <font>
+                                                <Font name="Dubai Regular" size="18.0" />
+                                             </font>
+                                          </Text>
+                                          <Label text="Package Expire in">
+                                             <GridPane.margin>
+                                                <Insets />
+                                             </GridPane.margin>
+                                          </Label>
+                                       </children>
+                                    </GridPane>
+                                    <GridPane alignment="CENTER" hgap="100.0">
+                                       <columnConstraints>
+                                          <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" prefWidth="100.0" />
+                                          <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                       <children>
+                                          <Text fx:id="PersonCurrent" fill="#402f2f" strokeType="OUTSIDE" strokeWidth="0.0" text="Student" GridPane.columnIndex="1">
+                                             <font>
+                                                <Font name="Dubai Regular" size="18.0" />
+                                             </font>
+                                          </Text>
+                                          <Label text="Current Package">
+                                             <GridPane.margin>
+                                                <Insets />
+                                             </GridPane.margin>
+                                          </Label>
+                                       </children>
+                                    </GridPane>
+                                 </children>
+                              </VBox>
+                              <JFXTextField fx:id="PackageDate" maxWidth="-Infinity" prefHeight="31.0" prefWidth="341.0" promptText="Start Date (leave empty for today)   YYY-MM-DD">
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" />
+                                 </VBox.margin>
+                              </JFXTextField>
+                              <JFXComboBox fx:id="Packagedetail" prefHeight="25.0" prefWidth="333.0" promptText="Packages" style="-fx-font-size: 16px;" />
+                              <GridPane alignment="CENTER" hgap="20.0">
+                                 <columnConstraints>
+                                    <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" prefWidth="100.0" />
+                                    <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                                 <children>
+                                    <JFXButton onAction="#RenewPackage" prefHeight="30.0" prefWidth="160.0" ripplerFill="#786ec3" style="-fx-background-color: #321dbb; -fx-background-radius: 10px;" text="Renew" textFill="WHITE">
+                                       <font>
+                                          <Font name="Nirmala UI" size="16.0" />
+                                       </font>
+                                    </JFXButton>
+                                    <JFXButton prefHeight="37.0" prefWidth="157.0" ripplerFill="#786ec3" style="-fx-background-color: #321dbb; -fx-background-radius: 10px;" text="Print Reciept" textFill="WHITE" GridPane.columnIndex="1">
+                                       <font>
+                                          <Font name="Nirmala UI" size="16.0" />
+                                       </font>
+                                    </JFXButton>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets top="15.0" />
+                                 </VBox.margin>
+                              </GridPane>
+                              <JFXButton prefHeight="34.0" prefWidth="339.0" style="-fx-background-color: #321dbb; -fx-background-radius: 10px;" text="Re Store Fingerprint" textFill="WHITE">
+                                 <VBox.margin>
+                                    <Insets top="15.0" />
+                                 </VBox.margin>
+                                 <font>
+                                    <Font name="Nirmala UI" size="16.0" />
+                                 </font>
+                              </JFXButton>
+                           </children>
+                           <StackPane.margin>
+                              <Insets bottom="15.0" left="15.0" right="15.0" top="40.0" />
+                           </StackPane.margin>
+                        </VBox>
+                        <VBox id="UDPDATEVBOx" fx:id="FORMVBOX" alignment="TOP_CENTER" maxWidth="1200.0" minWidth="500.0" prefHeight="200.0" prefWidth="100.0" stylesheets="@styles/style.css">
+                           <children>
+                              <Label id="okok" stylesheets="@styles/style.css" text="JK-FITNESS">
+                                 <font>
+                                    <Font name="Cambria Bold" size="96.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" left="5.0" top="10.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Membership Detail" underline="true">
+                                 <font>
+                                    <Font size="17.0" />
+                                 </font>
+                              </Text>
+                              <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0">
+                                 <children>
+                                    <ImageView fx:id="FormImage" fitHeight="139.0" fitWidth="115.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../images/jimmy-fallon.png" />
+                                       </image>
+                                       <HBox.margin>
+                                          <Insets bottom="10.0" right="20.0" top="10.0" />
+                                       </HBox.margin>
+                                    </ImageView>
+                                 </children>
+                              </HBox>
+                              <VBox prefHeight="200.0" prefWidth="100.0">
+                                 <children>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Personal Information" underline="true">
+                                       <font>
+                                          <Font name="System Bold" size="17.0" />
+                                       </font>
+                                    </Text>
+                                    <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-border-color: rgb(0,0,0);;">
+                                       <children>
+                                          <HBox prefHeight="39.0" prefWidth="865.0">
+                                             <children>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Name:" wrappingWidth="84.95458984375">
+                                                   <font>
+                                                      <Font name="System Bold" size="17.0" />
+                                                   </font>
+                                                </Text>
+                                                <Text fx:id="FormName" strokeType="OUTSIDE" strokeWidth="0.0" text="Muhmmad Muzamil Hussain" underline="true" wrappingWidth="317.4189453125">
+                                                   <font>
+                                                      <Font size="17.0" />
+                                                   </font>
+                                                </Text>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="S/O,D/O" wrappingWidth="115.52685546875">
+                                                   <font>
+                                                      <Font name="System Bold" size="17.0" />
+                                                   </font>
+                                                </Text>
+                                                <Text fx:id="FormFatherName" strokeType="OUTSIDE" strokeWidth="0.0" text="Amjad" underline="true" wrappingWidth="243.4189453125">
+                                                   <font>
+                                                      <Font size="17.0" />
+                                                   </font>
+                                                </Text>
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets top="10.0" />
+                                             </VBox.margin>
+                                             <padding>
+                                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                             </padding>
+                                          </HBox>
+                                          <HBox prefHeight="39.0" prefWidth="865.0">
+                                             <children>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="CNIC no:" wrappingWidth="84.95458984375">
+                                                   <font>
+                                                      <Font name="System Bold" size="17.0" />
+                                                   </font>
+                                                </Text>
+                                                <Text fx:id="FormCNIC" strokeType="OUTSIDE" strokeWidth="0.0" text="3820129458796" underline="true" wrappingWidth="317.4189453125">
+                                                   <font>
+                                                      <Font size="17.0" />
+                                                   </font>
+                                                </Text>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="DOB:" wrappingWidth="115.52685546875">
+                                                   <font>
+                                                      <Font name="System Bold" size="17.0" />
+                                                   </font>
+                                                </Text>
+                                                <Text fx:id="FormDOB" strokeType="OUTSIDE" strokeWidth="0.0" text="3-9-2001" underline="true" wrappingWidth="243.4189453125">
+                                                   <font>
+                                                      <Font size="17.0" />
+                                                   </font>
+                                                </Text>
+                                             </children>
+                                             <padding>
+                                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                             </padding>
+                                          </HBox>
+                                          <HBox prefHeight="39.0" prefWidth="865.0">
+                                             <children>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Email:" wrappingWidth="84.95458984375">
+                                                   <font>
+                                                      <Font name="System Bold" size="17.0" />
+                                                   </font>
+                                                </Text>
+                                                <Text fx:id="FormEMAIL" strokeType="OUTSIDE" strokeWidth="0.0" text="muzami@gmail.com" underline="true" wrappingWidth="317.4189453125">
+                                                   <font>
+                                                      <Font size="17.0" />
+                                                   </font>
+                                                </Text>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Profession:" wrappingWidth="115.52685546875">
+                                                   <font>
+                                                      <Font name="System Bold" size="17.0" />
+                                                   </font>
+                                                </Text>
+                                                <Text fx:id="FormProfession" strokeType="OUTSIDE" strokeWidth="0.0" text="Student" underline="true" wrappingWidth="243.4189453125">
+                                                   <font>
+                                                      <Font size="17.0" />
+                                                   </font>
+                                                </Text>
+                                             </children>
+                                             <padding>
+                                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                             </padding>
+                                          </HBox>
+                                          <HBox prefHeight="39.0" prefWidth="865.0">
+                                             <children>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Status: " wrappingWidth="84.95458984375">
+                                                   <font>
+                                                      <Font name="System Bold" size="17.0" />
+                                                   </font>
+                                                </Text>
+                                                <Text fx:id="FormStatus" strokeType="OUTSIDE" strokeWidth="0.0" text="Pending" underline="true" wrappingWidth="317.4189453125">
+                                                   <font>
+                                                      <Font size="17.0" />
+                                                   </font>
+                                                </Text>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Cell #:" wrappingWidth="115.52685546875">
+                                                   <font>
+                                                      <Font name="System Bold" size="17.0" />
+                                                   </font>
+                                                </Text>
+                                                <Text fx:id="FormCell" strokeType="OUTSIDE" strokeWidth="0.0" text="03041053082" underline="true" wrappingWidth="243.4189453125">
+                                                   <font>
+                                                      <Font size="17.0" />
+                                                   </font>
+                                                </Text>
+                                             </children>
+                                             <padding>
+                                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                             </padding>
+                                          </HBox>
+                                          <HBox prefHeight="39.0" prefWidth="865.0">
+                                             <children>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Diseases:" wrappingWidth="84.95458984375">
+                                                   <font>
+                                                      <Font name="System Bold" size="17.0" />
+                                                   </font>
+                                                </Text>
+                                                <Text fx:id="FormDiseases" strokeType="OUTSIDE" strokeWidth="0.0" text="None" underline="true" wrappingWidth="317.4189453125">
+                                                   <font>
+                                                      <Font size="17.0" />
+                                                   </font>
+                                                </Text>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Address:" wrappingWidth="114.95458984375">
+                                                   <font>
+                                                      <Font name="System Bold" size="17.0" />
+                                                   </font>
+                                                </Text>
+                                                <Text fx:id="FormAddress" strokeType="OUTSIDE" strokeWidth="0.0" text="Ghor and ok now how you that this" underline="true" wrappingWidth="309.4189453125">
+                                                   <font>
+                                                      <Font size="17.0" />
+                                                   </font>
+                                                </Text>
+                                             </children>
+                                             <padding>
+                                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                             </padding>
+                                          </HBox>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets top="10.0" />
+                                       </VBox.margin>
+                                    </VBox>
+                                 </children>
+                              </VBox>
+                              <VBox prefHeight="218.0" prefWidth="840.0">
+                                 <children>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Emergency Contact" underline="true">
+                                       <font>
+                                          <Font name="System Bold" size="17.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets top="15.0" />
+                                       </VBox.margin>
+                                    </Text>
+                                    <VBox prefHeight="62.0" prefWidth="840.0" style="-fx-border-color: rgb(0,0,0);;">
+                                       <children>
+                                          <HBox prefHeight="39.0" prefWidth="865.0">
+                                             <children>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Name:" wrappingWidth="84.95458984375">
+                                                   <font>
+                                                      <Font name="System Bold" size="17.0" />
+                                                   </font>
+                                                </Text>
+                                                <Text fx:id="FormEmName" strokeType="OUTSIDE" strokeWidth="0.0" text="Muhmmad Muzamil Hussain" underline="true" wrappingWidth="317.4189453125">
+                                                   <font>
+                                                      <Font size="17.0" />
+                                                   </font>
+                                                </Text>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Contact No:" wrappingWidth="115.52685546875">
+                                                   <font>
+                                                      <Font name="System Bold" size="17.0" />
+                                                   </font>
+                                                </Text>
+                                                <Text fx:id="FormEmContact" strokeType="OUTSIDE" strokeWidth="0.0" text="03154810548" underline="true" wrappingWidth="243.4189453125">
+                                                   <font>
+                                                      <Font size="17.0" />
+                                                   </font>
+                                                </Text>
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets top="10.0" />
+                                             </VBox.margin>
+                                             <padding>
+                                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                             </padding>
+                                          </HBox>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets top="10.0" />
+                                       </VBox.margin>
+                                    </VBox>
+                                 </children>
+                              </VBox>
+                              <JFXButton onAction="#RemoveFome" prefHeight="35.0" prefWidth="161.0" style="-fx-background-color: #321dbb; -fx-border-radius: 10px;" text="Edit" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="13.0" />
+                                 </font>
+                              </JFXButton>
+                           </children>
+                           <StackPane.margin>
+                              <Insets bottom="15.0" left="15.0" right="15.0" top="40.0" />
+                           </StackPane.margin>
+                           <padding>
+                              <Insets bottom="10.0" left="25.0" right="20.0" top="10.0" />
+                           </padding>
+                        </VBox>
+                            </children>
+                        </StackPane>
+                    </content>
+                </ScrollPane>
+            </items>
+        </SplitPane>
+        <HBox id="HBox" alignment="TOP_CENTER" prefHeight="28.0" prefWidth="969.0" spacing="5.0" VBox.vgrow="NEVER">
+            <children>
+                <Label maxWidth="-1.0" onMouseClicked="#AboutUs" text="\@ Powerd by LunaTech" HBox.hgrow="NEVER">
+                    <font>
+                        <Font name="System Bold Italic" size="14.0" fx:id="x3" />
+                    </font>
+                </Label>
+            </children>
+            <padding>
+                <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+            </padding>
+        </HBox>
+    </children>
+</VBox>
