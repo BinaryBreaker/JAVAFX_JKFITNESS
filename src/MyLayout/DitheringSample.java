@@ -63,19 +63,18 @@ public class DitheringSample {
                     .setJustification(EscPosConst.Justification.Center);
             escpos.writeLF(title, "Ghauri Town");
             escpos.feed(1);
-            escpos.writeLF(Add, "First floor Bin Khurshid Plaza Street 9b ");
-            escpos.writeLF(Add, " Phase 5 Ghauri Town Islamabad").feed(1);
-            escpos.writeLF(Add, "contact :  (051) 2156440");
+            escpos.writeLF(Add, "First floor Bin Khurshid Plaza Street 9B ");
+            escpos.writeLF(Add, " Phase 5 Ghori Town Islamabad").feed(1);
+            escpos.writeLF(Add, "Contact :  (051) 2156440");
             escpos.writeLF("---------------------------------------------").feed(1);
-            escpos.writeLF("Member ID        " + printerData.getMemberid())
-                    .writeLF("Name             " + printerData.getName())
+            escpos.writeLF("Name             " + printerData.getName())
                     .writeLF("Start Date       " + printerData.getStartDate())
-                    .writeLF("End Date         " + printerData.getEndDate())
+                    .writeLF("Expiry Date         " + printerData.getEndDate())
                     .writeLF("Package          " + printerData.getPackage())
                     .writeLF("Price            " + printerData.getAmount() + " Rs").feed(1)
                     .writeLF("---------------------------------------------")
                     .writeLF(branding, "Note: Your membership is valid till the")
-                    .writeLF(branding, " above mentioned date")
+                    .writeLF(branding, " above mentioned Expiry date")
                     .writeLF("---------------------------------------------")
                     .feed(1);
 

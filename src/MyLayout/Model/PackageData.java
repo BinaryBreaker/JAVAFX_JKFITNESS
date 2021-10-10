@@ -15,6 +15,8 @@ public class PackageData {
     private String Amount;
     private String Dp_Pic;
     private String Email;
+    private String CompanyName;
+    private String Contacts;
     private ArrayList<GymPakagetDetail> Available_Packages;
 
 
@@ -27,6 +29,22 @@ public class PackageData {
     }
 
     public PackageData() {
+    }
+
+    public String getCompanyName() {
+        return CompanyName;
+    }
+
+    public void setCompanyName(String companyName) {
+        CompanyName = companyName;
+    }
+
+    public String getContacts() {
+        return Contacts;
+    }
+
+    public void setContacts(String contacts) {
+        Contacts = contacts;
     }
 
     public PackageData(String memeber_Id, String status, String figerPrint, String person_Name, String phone_No, String CNIC, String startDate, String endDate, String current_Package, String amount, String dp_Pic, ArrayList<GymPakagetDetail> available_Packages) {

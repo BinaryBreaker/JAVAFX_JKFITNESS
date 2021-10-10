@@ -21,18 +21,28 @@ public class Client {
     private String Status;
     private String Finger_template;
     private File ID_PIC_1;
-    private File ID_PIC_2;
+    private File ID_PIC_2_File;
     private File DP_2;
     private String ID_PIC;
+    private String ID_PIC_2;
     private String DP;
     private String Diseases;
     private String Finger_Print_Status;
 
-    public File getID_PIC_2() {
+
+    public File getID_PIC_2_File() {
+        return ID_PIC_2_File;
+    }
+
+    public void setID_PIC_2_File(File ID_PIC_2_File) {
+        this.ID_PIC_2_File = ID_PIC_2_File;
+    }
+
+    public String getID_PIC_2() {
         return ID_PIC_2;
     }
 
-    public void setID_PIC_2(File ID_PIC_2) {
+    public void setID_PIC_2(String ID_PIC_2) {
         this.ID_PIC_2 = ID_PIC_2;
     }
 

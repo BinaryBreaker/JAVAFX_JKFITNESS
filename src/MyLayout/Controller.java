@@ -387,7 +387,7 @@ public class Controller implements Initializable, TemplateSetter {
                     Platform.runLater(new Runnable() {
                         @Override
                         public void run() {
-                            ShowDialog("Connection Error", "Internet connection Error");
+                            ShowDialog("Connection Error", "PC isn't connected to the Internet");
                             LoadingDialog.close();
                         }
                     });
@@ -612,7 +612,7 @@ public class Controller implements Initializable, TemplateSetter {
                     Platform.runLater(new Runnable() {
                         @Override
                         public void run() {
-                            ShowDialog("Connection Error", "Internet connection Error");
+                            ShowDialog("Connection Error", "PC isn't connected to the Internet");
                             LoadingDialog.close();
                         }
                     });
@@ -724,8 +724,8 @@ public class Controller implements Initializable, TemplateSetter {
                     multipart.addFormField("Finger_template", client.getFinger_template());
                     if (client.getID_PIC_1() != null)
                         multipart.addFilePart("ID_PIC", client.getID_PIC_1());
-                    if (client.getID_PIC_2() != null)
-                        multipart.addFilePart("ID_PIC_2", client.getID_PIC_1());
+                    if (client.getID_PIC_2_File() != null)
+                        multipart.addFilePart("ID_PIC_2", client.getID_PIC_2_File());
                     if (client.getDP_2() != null)
                         multipart.addFilePart("DP", client.getDP_2());
 
@@ -752,7 +752,7 @@ public class Controller implements Initializable, TemplateSetter {
                         @Override
                         public void run() {
                             LoadingDialog.close();
-                            ShowDialog("Error", "Connection Error Please Check Your internet Connection");
+                            ShowDialog("Error", "Connection Error. Check Your internet connection");
                         }
                     });
                 }
@@ -787,9 +787,12 @@ public class Controller implements Initializable, TemplateSetter {
                     multipart.addFormField("Status", "pending");
                     multipart.addFormField("Diseases", client.getDiseases());
                     multipart.addFormField("Finger_template", client.getFinger_template());
-                    multipart.addFilePart("ID_PIC", client.getID_PIC_1());
-                    multipart.addFilePart("ID_PIC_2", client.getID_PIC_2());
-                    multipart.addFilePart("DP", client.getDP_2());
+                    if (client.getID_PIC_1() != null)
+                        multipart.addFilePart("ID_PIC", client.getID_PIC_1());
+                    if (client.getID_PIC_2_File() != null)
+                        multipart.addFilePart("ID_PIC_2", client.getID_PIC_2_File());
+                    if (client.getDP_2() != null)
+                        multipart.addFilePart("DP", client.getDP_2());
                     JsonObject response = new Gson().fromJson(multipart.finish(), JsonObject.class);
                     Platform.runLater(new Runnable() {
                         @Override
@@ -811,7 +814,7 @@ public class Controller implements Initializable, TemplateSetter {
                         @Override
                         public void run() {
                             LoadingDialog.close();
-                            ShowDialog("Error", "Connection Error. Check Your internet Connection");
+                            ShowDialog("Error", "Connection Error. Check Your internet connection");
                         }
                     });
                 }
@@ -888,12 +891,12 @@ public class Controller implements Initializable, TemplateSetter {
     public void UploadIdCardFront() {
         File file = Uploader(IDcardImageFront);
         if (file != null)
-            client.setID_PIC_2(file);
+            client.setID_PIC_2_File(file);
     }
 
     @FXML
     public void IdCaptureFront() {
-        client.setID_PIC_2(caputrepicture(Idname, IDcardImageFront));
+        client.setID_PIC_2_File(caputrepicture(Idname, IDcardImageFront));
     }
 
     private File Uploader(ImageView img) {
@@ -936,7 +939,7 @@ public class Controller implements Initializable, TemplateSetter {
 
             @Override
             public void ErrorWebcame() {
-                ShowDialog("Webcam Error", "Ensure that camera is connected");
+                ShowDialog("Camera Error", "Please ensure that Camera is connected to the PC. :(");
             }
         });
         Scene scene = new Scene(parent);
@@ -974,7 +977,7 @@ public class Controller implements Initializable, TemplateSetter {
             client.setDOB(value);
             return true;
         } catch (ParseException e) {
-            Validate_Dialog += "Enter Date-of-Birth in  YYYY-MM-DD Format\n";
+            Validate_Dialog += "Enter Date of Birth in  YYYY-MM-DD Format\n";
             return false;
         }
     }
@@ -1130,6 +1133,7 @@ public class Controller implements Initializable, TemplateSetter {
         File file = new File("C:\\Users\\MMH\\Desktop\\JAVAFX\\src\\images\\jimmy-fallon.png");
         DP.setImage(new Image(file.toURI().toString()));
         IDcardImageback.setImage(null);
+        IDcardImageFront.setImage(null);
         Fingerprint.setImage(null);
         Name.setText("");
         FatherName.setText("");
@@ -1150,6 +1154,9 @@ public class Controller implements Initializable, TemplateSetter {
         Male.setSelected(false);
         Female.setSelected(false);
         client.setID_PIC_1(null);
+        client.setID_PIC_2(null);
+        client.setID_PIC_2_File(null);
+        client.setID_PIC(null);
         client.setFinger_template("");
         client.setDP_2(null);
     }
@@ -1194,9 +1201,14 @@ public class Controller implements Initializable, TemplateSetter {
 
 
     private void ShowData() {
-        DP.setImage(new Image(URL_SITE + client.getDP()));
-        IDcardImageback.setImage(new Image(URL_SITE + client.getID_PIC()));
-        Fingerprint.setImage(new Image(URL_SITE + client.getID_PIC()));
+        if (null != client.getDP())
+            DP.setImage(new Image(URL_SITE + client.getDP()));
+        if (null != client.getID_PIC())
+            IDcardImageback.setImage(new Image(URL_SITE + client.getID_PIC()));
+        if (null != client.getID_PIC_2())
+            IDcardImageFront.setImage(new Image(URL_SITE + client.getID_PIC_2()));
+
+        Fingerprint.setImage(new Image(new File("C:\\Users\\MMH\\Desktop\\JAVAFX\\src\\images\\fingerprint.bmp").toURI().toString()));
         Name.setText(client.getName());
         FatherName.setText(client.getFather_Name());
         IdCard.setText(client.getCNIC());
@@ -1243,7 +1255,7 @@ public class Controller implements Initializable, TemplateSetter {
                 client.setDOB(value);
                 return true;
             } catch (ParseException e) {
-                ShowDialog("Invalid", "Enter Date in  YYYY-MM-DD Format\n");
+                ShowDialog("Invalid", "Enter date in  YYYY-MM-DD Format\n");
                 return false;
             }
         }
@@ -1264,6 +1276,69 @@ public class Controller implements Initializable, TemplateSetter {
     @FXML
     public void RenewPackage() {
         RenewPackag();
+    }
+
+
+    @FXML
+    public void ResPrintRecipet() {
+        if (ValDatePack() & (dataPackteNew != null)) {
+
+            PrintableData data = new PrintableData();
+            data.setAmount(Integer.parseInt(dataPackteNew.getAmount()));
+            data.setMemberid(Integer.parseInt(dataPackteNew.getMemeber_Id()));
+            data.setCompanyName(dataPackteNew.getCompanyName());
+            data.setContacts(dataPackteNew.getContacts());
+            data.setStartDate(dataPackteNew.getStartDate());
+            data.setEndDate(dataPackteNew.getEndDate());
+            data.setPackage(dataPackteNew.getCurrent_Package());
+            data.setName(dataPackteNew.getPerson_Name());
+            data.prindata();
+        }
+    }
+
+    @FXML
+    public void RestoreFingerPrint() {
+        if (ValDatePack() & (dataPackteNew != null)) {
+            LoadingDialog.show();
+            if ((dataPackteNew.getStatus().toLowerCase()).equals("pending")) {
+                ShowDialog("Error", "Client Account is not approved yet..\nYou can add fingerprint after after owner approves the client.");
+                LoadingDialog.close();
+                RestDataPackete();
+            } else if ((dataPackteNew.getFigerPrint()).length() < 10) {
+                ShowDialog("Error", "No fingerprint associated with this client. Update client data");
+                LoadingDialog.close();
+                RestDataPackete();
+
+            } else {
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            javaSocket.sendMessage(new SocketDataModel(dataPackteNew.getCNIC(), 500,
+                                    dataPackteNew.getPerson_Name(), dataPackteNew.getFigerPrint()).toString());
+                            Platform.runLater(new Runnable() {
+                                @Override
+                                public void run() {
+                                    LoadingDialog.close();
+                                    RestDataPackete();
+                                }
+                            });
+                        } catch (IOException e) {
+                            Platform.runLater(new Runnable() {
+                                @Override
+                                public void run() {
+                                    LoadingDialog.close();
+                                    RestDataPackete();
+                                }
+                            });
+                            e.printStackTrace();
+                        }
+                    }
+                }).start();
+
+            }
+
+        }
     }
 
     private void RenewPackag() {
@@ -1299,13 +1374,13 @@ public class Controller implements Initializable, TemplateSetter {
                                     PrintableData data = new Gson().fromJson(message, PrintableData.class);
                                     data.prindata();
                                     if ((dataPackteNew.getStatus().toLowerCase()).equals("pending")) {
-                                        ShowDialog("Package renewal Error", "Client account is not approved yet..\nYou can add fingerprint after the owner approves the client");
+                                        ShowDialog("Package renewal error", "Client Account is not approved yet..\nYou can add fingerprint after after owner approves the client.");
                                         LoadingDialog.close();
                                         RestDataPackete();
 
 
                                     } else if ((dataPackteNew.getFigerPrint()).length() < 10) {
-                                        ShowDialog("Package renewal Error", "No Fingerprint associated with this client. Update client data.");
+                                        ShowDialog("Package renewal error", "No fingerprint associated with this client. Update client data");
                                         LoadingDialog.close();
                                         RestDataPackete();
 
@@ -1352,7 +1427,7 @@ public class Controller implements Initializable, TemplateSetter {
                             @Override
                             public void run() {
                                 LoadingDialog.close();
-                                ShowDialog("Error", "Connection error. Check your internet Connection");
+                                ShowDialog("Error", "Connection Error. Check your internet Connection");
                             }
                         });
                     }
@@ -1366,7 +1441,8 @@ public class Controller implements Initializable, TemplateSetter {
     public void FormShowData(Client client) {
         label.setText("");
         stackpane.getChildren().add(FORMVBOX);
-        FormImage.setImage(new Image(URL_SITE + client.getDP()));
+        if (null != client.getDP())
+            FormImage.setImage(new Image(URL_SITE + client.getDP()));
         FormName.setText(client.getName());
         FormFatherName.setText(client.getFather_Name());
         FormCNIC.setText(client.getCNIC());
