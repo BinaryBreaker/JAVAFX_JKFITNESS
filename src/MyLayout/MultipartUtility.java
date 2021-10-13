@@ -58,7 +58,7 @@ public class MultipartUtility {
 
         URL url = new URL(requestURL);
         httpConn = (HttpURLConnection) url.openConnection();
-        String encoded = Base64.getEncoder().encodeToString(("ghori" + ":" + "muzamil@1182001").getBytes(StandardCharsets.UTF_8));  //Java 8
+        String encoded = Base64.getEncoder().encodeToString((Username + ":" + Password).getBytes(StandardCharsets.UTF_8));  //Java 8
         httpConn.setRequestProperty("Authorization", "Basic " + encoded);
         httpConn.setUseCaches(false);
         httpConn.setDoOutput(true); // indicates POST method

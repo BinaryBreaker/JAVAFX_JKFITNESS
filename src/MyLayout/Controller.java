@@ -208,7 +208,6 @@ public class Controller implements Initializable, TemplateSetter {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         javaSocket = SplashScreen.javaSocket;
-
         credentials = new Credentials();
         credentials.ReadData();
         new Thread(new Runnable() {
@@ -810,6 +809,8 @@ public class Controller implements Initializable, TemplateSetter {
                         }
                     });
                 } catch (IOException e) {
+                    e.printStackTrace();
+                    System.out.println(e);
                     Platform.runLater(new Runnable() {
                         @Override
                         public void run() {
@@ -1466,5 +1467,31 @@ public class Controller implements Initializable, TemplateSetter {
         DP.setVisible(true);
         DpHBox.setVisible(true);
         MainVBox.setVisible(true);
+    }
+
+
+    @FXML
+    JFXButton logout;
+    @FXML
+    public void Logout(){
+        Credentials c =  new Credentials(null,null);
+        c.SaveData();
+        Stage primaryStage = new Stage();
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("SplashScreen.fxml"));
+        Parent parent = null;
+        try {
+            parent = (Parent) fxmlLoader.load();
+        } catch (IOException ioException) {
+            ioException.printStackTrace();
+        }
+        primaryStage.setScene(new Scene(parent));
+        //set stage borderless
+        primaryStage.setTitle("JK-Fitness");
+        primaryStage.getIcons().add(new Image("C:\\Users\\MMH\\Desktop\\JAVAFX\\src\\images\\logo.png"));
+        primaryStage.setResizable(false);
+        primaryStage.initStyle(StageStyle.UNDECORATED);
+        Stage stage = (Stage) logout.getScene().getWindow();
+        stage.close();
+        primaryStage.show();
     }
 }
