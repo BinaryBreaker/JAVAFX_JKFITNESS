@@ -720,6 +720,8 @@ public class Controller implements Initializable, TemplateSetter {
                     multipart.addFormField("Emg_Name", client.getEmg_Name());
                     multipart.addFormField("Status", client.getStatus());
                     multipart.addFormField("Diseases", client.getDiseases());
+                    if (client.getFinger_template().length() <= 3)
+                        client.setFinger_template("null");
                     multipart.addFormField("Finger_template", client.getFinger_template());
                     if (client.getID_PIC_1() != null)
                         multipart.addFilePart("ID_PIC", client.getID_PIC_1());
@@ -785,6 +787,8 @@ public class Controller implements Initializable, TemplateSetter {
                     multipart.addFormField("Emg_Name", client.getEmg_Name());
                     multipart.addFormField("Status", "pending");
                     multipart.addFormField("Diseases", client.getDiseases());
+                    if (client.getFinger_template().length() <= 3)
+                        client.setFinger_template("null");
                     multipart.addFormField("Finger_template", client.getFinger_template());
                     if (client.getID_PIC_1() != null)
                         multipart.addFilePart("ID_PIC", client.getID_PIC_1());
@@ -1082,7 +1086,7 @@ public class Controller implements Initializable, TemplateSetter {
         if (value.length() <= 0) {
             Validate_Dialog += "Email required \n";
             return false;
-        } else if (!Pattern.matches("[a-zA-Z0-9]{1,}[@]{1}[a-z]{5,}[.]{1}+[a-z]{3}", value)) {
+        } else if (!Pattern.matches( "^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$", value)) {
             Validate_Dialog += "Enter a valid email address  \n";
             return false;
         }
@@ -1310,17 +1314,29 @@ public class Controller implements Initializable, TemplateSetter {
                 LoadingDialog.close();
                 RestDataPackete();
 
-            } else {
+            } else if (dataPackteNew.isMemberShipExpired()){
+                ShowDialog("Error", "Membership is Expired");
+                LoadingDialog.close();
+                RestDataPackete();
+            }else {
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
                         try {
-                            javaSocket.sendMessage(new SocketDataModel(dataPackteNew.getCNIC(), 500,
+                            String data = javaSocket.sendMessage(new SocketDataModel(dataPackteNew.getId(), 500,
                                     dataPackteNew.getPerson_Name(), dataPackteNew.getFigerPrint()).toString());
+                            System.out.println(data);
+                            JsonObject response = new Gson().fromJson(data, JsonObject.class);
                             Platform.runLater(new Runnable() {
                                 @Override
                                 public void run() {
                                     LoadingDialog.close();
+                                    if (response.get("Status").getAsInt()  == 400){
+                                        ShowDialog("Error",response.get("msg").getAsString());
+                                    }else{
+                                        ShowDialog("Added",response.get("msg").getAsString());
+
+                                    }
                                     RestDataPackete();
                                 }
                             });
@@ -1385,17 +1401,28 @@ public class Controller implements Initializable, TemplateSetter {
                                         LoadingDialog.close();
                                         RestDataPackete();
 
+                                    } else if (data.isMemberShipExpired()){
+                                        ShowDialog("Error", "Membership is Expired");
+                                        LoadingDialog.close();
+                                        RestDataPackete();
                                     } else {
                                         new Thread(new Runnable() {
                                             @Override
                                             public void run() {
                                                 try {
-                                                    javaSocket.sendMessage(new SocketDataModel(dataPackteNew.getCNIC(), 500,
+                                                    String data = javaSocket.sendMessage(new SocketDataModel(dataPackteNew.getId(), 500,
                                                             dataPackteNew.getPerson_Name(), dataPackteNew.getFigerPrint()).toString());
+                                                    JsonObject response = new Gson().fromJson(data, JsonObject.class);
                                                     Platform.runLater(new Runnable() {
                                                         @Override
                                                         public void run() {
                                                             LoadingDialog.close();
+                                                            if (response.get("Status").getAsInt()  == 400){
+                                                                ShowDialog("Error",response.get("msg").getAsString());
+                                                            }else{
+                                                                ShowDialog("Added",response.get("msg").getAsString());
+
+                                                            }
                                                             RestDataPackete();
                                                         }
                                                     });
@@ -1472,9 +1499,10 @@ public class Controller implements Initializable, TemplateSetter {
 
     @FXML
     JFXButton logout;
+
     @FXML
-    public void Logout(){
-        Credentials c =  new Credentials(null,null);
+    public void Logout() {
+        Credentials c = new Credentials(null, null);
         c.SaveData();
         Stage primaryStage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("SplashScreen.fxml"));

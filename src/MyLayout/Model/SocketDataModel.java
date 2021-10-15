@@ -3,14 +3,14 @@ package MyLayout.Model;
 import com.google.gson.Gson;
 
 public class SocketDataModel {
-    private String cnic;
+    private String id;
     private int Status;
     private String Name;
     private String template;
 
 
-    public SocketDataModel(String cnic, int status, String name, String template) {
-        this.cnic = cnic;
+    public SocketDataModel(int id, int status, String name, String template) {
+        this.id = String.valueOf(id);
         Status = status;
         Name = name;
         this.template = template;
@@ -21,12 +21,13 @@ public class SocketDataModel {
         return new Gson().toJson(this);
     }
 
-    public String getCnic() {
-        return cnic;
+
+    public String getId() {
+        return id;
     }
 
-    public void setCnic(String cnic) {
-        this.cnic = cnic;
+    public void setId(String id) {
+        this.id = id;
     }
 
     public int getStatus() {

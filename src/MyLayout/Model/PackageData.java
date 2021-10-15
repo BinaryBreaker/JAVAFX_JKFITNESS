@@ -3,6 +3,7 @@ package MyLayout.Model;
 import java.util.ArrayList;
 
 public class PackageData {
+    private int id;
     private String Memeber_Id;
     private String Status;
     private String FigerPrint;
@@ -15,10 +16,26 @@ public class PackageData {
     private String Amount;
     private String Dp_Pic;
     private String Email;
+    private boolean MemberShipExpired;
     private String CompanyName;
     private String Contacts;
     private ArrayList<GymPakagetDetail> Available_Packages;
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public boolean isMemberShipExpired() {
+        return MemberShipExpired;
+    }
+
+    public void setMemberShipExpired(boolean memberShipExpired) {
+        MemberShipExpired = memberShipExpired;
+    }
 
     public String getEmail() {
         return Email;

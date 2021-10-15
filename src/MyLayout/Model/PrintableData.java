@@ -11,6 +11,7 @@ public class PrintableData {
     private String  Package;
     private String  CompanyName;
     private String  Contacts;
+    private boolean  MemberShipExpired;
 
     public PrintableData(int memberid, int amount, String name, String startDate, String endDate, String aPackage, String companyName, String contacts) {
         Memberid = memberid;
@@ -21,6 +22,14 @@ public class PrintableData {
         Package = aPackage;
         CompanyName = companyName;
         Contacts = contacts;
+    }
+
+    public boolean isMemberShipExpired() {
+        return MemberShipExpired;
+    }
+
+    public void setMemberShipExpired(boolean memberShipExpired) {
+        MemberShipExpired = memberShipExpired;
     }
 
     public String getCompanyName() {

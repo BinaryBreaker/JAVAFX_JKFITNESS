@@ -69,7 +69,7 @@ public class DitheringSample {
             escpos.writeLF("---------------------------------------------").feed(1);
             escpos.writeLF("Name             " + printerData.getName())
                     .writeLF("Start Date       " + printerData.getStartDate())
-                    .writeLF("Expiry Date         " + printerData.getEndDate())
+                    .writeLF("Expiry Date      " + printerData.getEndDate())
                     .writeLF("Package          " + printerData.getPackage())
                     .writeLF("Price            " + printerData.getAmount() + " Rs").feed(1)
                     .writeLF("---------------------------------------------")
